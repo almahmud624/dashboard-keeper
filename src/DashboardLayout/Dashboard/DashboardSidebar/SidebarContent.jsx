@@ -44,6 +44,7 @@ export const SidebarContent = ({ onClose, ...rest }) => {
         borderRadius={"xl"}
         h="full"
         {...rest}
+        overflow={{ base: "scroll", md: "hidden" }}
       >
         <Flex
           h="20"
@@ -100,7 +101,15 @@ export const SidebarContent = ({ onClose, ...rest }) => {
             </Flex>
           </Link>
         ))}
-        <Flex flexDir={"column"} alignItems={"center"} mt={16} rowGap={5}>
+        <Flex
+          flexDir={{ base: "row", md: "column" }}
+          alignItems={"center"}
+          justifyContent={{ base: "center", md: "left" }}
+          mt={16}
+          rowGap={{ base: 0, md: 5 }}
+          columnGap={{ base: 5, md: 0 }}
+          mb={5}
+        >
           <Image src={logo2} alt="logo" />
           <Icon
             fontSize="24"

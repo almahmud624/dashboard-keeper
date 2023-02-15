@@ -46,6 +46,8 @@ export const FilterSection = () => {
               _selected={{ color: "white", bg: "#605BFF" }}
               width={"full"}
               overflow={"hidden"}
+              _first={{ borderLeftRadius: 10 }}
+              _last={{ borderRightRadius: 10 }}
             >
               {item}
             </Tab>
