@@ -1,20 +1,57 @@
-import { Box, CloseButton, Flex, Image, Link, Text } from "@chakra-ui/react";
+import {
+  Box,
+  CloseButton,
+  Flex,
+  Image,
+  Link,
+  Text,
+  Icon,
+} from "@chakra-ui/react";
 import logo from "../../../Assets/logo.png";
+import logo2 from "../../../Assets/logo2.png";
+import { AiFillAccountBook } from "react-icons/ai";
+import { HiTicket } from "react-icons/hi";
+import { MdInsertChart } from "react-icons/md";
+import { CgFileDocument } from "react-icons/cg";
+import { VscCalendar } from "react-icons/vsc";
+import { IoIosNotifications } from "react-icons/io";
+import { RiSettings4Fill } from "react-icons/ri";
+import { FiActivity } from "react-icons/fi";
+import { HiRectangleGroup } from "react-icons/hi2";
+import { IoLogOut } from "react-icons/io5";
 
-const navItems = ["home", "red"];
+const navItems = [
+  HiRectangleGroup,
+  AiFillAccountBook,
+  MdInsertChart,
+  HiTicket,
+  CgFileDocument,
+  VscCalendar,
+  FiActivity,
+  IoIosNotifications,
+  RiSettings4Fill,
+];
 export const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <>
       <Box
         bg={"white"}
-        borderRight="1px"
-        borderRightColor={"gray"}
-        w={{ base: "full", md: 60 }}
-        pos="fixed"
+        w={{ base: "full", md: 28 }}
+        pt={5}
+        pos="absolute"
+        top={{ base: 0, md: 10 }}
+        left={{ base: 0, md: 10 }}
+        borderRadius={"xl"}
         h="full"
         {...rest}
       >
-        <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+        <Flex
+          h="20"
+          alignItems="center"
+          mx="8"
+          justifyContent="space-between"
+          mb={10}
+        >
           <Box
             display={"flex"}
             flexDirection={"column"}
@@ -41,31 +78,40 @@ export const SidebarContent = ({ onClose, ...rest }) => {
           >
             <Flex
               align="center"
+              justifyContent={{ base: "left", md: "center" }}
               p="4"
               mx="4"
-              borderRadius="lg"
               role="group"
               cursor="pointer"
               _hover={{
-                bg: "cyan.400",
-                color: "white",
+                bgGradient: "linear(to-r, #ACA9FF, #FFFFFF)",
+                color: "#605BFF",
               }}
-              //   {...rest}
+              onClick={onClose}
             >
-              {/* {icon && (
               <Icon
-                mr="4"
-                fontSize="16"
+                fontSize="24"
+                color={"gray.500"}
                 _groupHover={{
-                  color: "white",
+                  color: "#605BFF",
                 }}
-                as={icon}
+                as={item}
               />
-            )} */}
-              {item}
             </Flex>
           </Link>
         ))}
+        <Flex flexDir={"column"} alignItems={"center"} mt={16} rowGap={5}>
+          <Image src={logo2} alt="logo" />
+          <Icon
+            fontSize="24"
+            color={"gray.500"}
+            _hover={{
+              color: "#605BFF",
+            }}
+            as={IoLogOut}
+            cursor={"pointer"}
+          />
+        </Flex>
       </Box>
     </>
   );

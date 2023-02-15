@@ -1,5 +1,7 @@
 import { Box, Flex, IconButton, Image, Text } from "@chakra-ui/react";
 import React from "react";
+import { HiMenuAlt2 } from "react-icons/hi";
+import logo from "../../../Assets/logo.png";
 
 export const SidebarResponsive = ({ onOpen }) => {
   return (
@@ -7,11 +9,10 @@ export const SidebarResponsive = ({ onOpen }) => {
       <Flex
         ml={{ base: 0, md: 60 }}
         px={{ base: 4, md: 24 }}
-        height="20"
         alignItems="center"
-        bg={"gray.600"}
+        pb={5}
         borderBottomWidth="1px"
-        borderBottomColor={"gray.600"}
+        borderBottomColor={"gray.100"}
         justifyContent="flex-start"
         display={{ base: "flex", md: "none" }}
       >
@@ -19,12 +20,22 @@ export const SidebarResponsive = ({ onOpen }) => {
           variant="outline"
           onClick={onOpen}
           aria-label="open menu"
-          // icon={<FiMenu />}
+          icon={<HiMenuAlt2 />}
         />
 
-        <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
+        <Box
+          display={"flex"}
+          flexDirection={"row"}
+          gap={2}
+          ml={5}
+          alignItems={"center"}
+          width={"full"}
+        >
+          <Image src={logo} alt="logo" />
+          <Text fontSize="2xl" fontWeight="semibold" color={"gray.900"}>
+            Keeper
+          </Text>
+        </Box>
       </Flex>
     </>
   );

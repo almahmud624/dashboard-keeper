@@ -1,13 +1,4 @@
-import {
-  Box,
-  CloseButton,
-  Drawer,
-  DrawerContent,
-  Flex,
-  Link,
-  Text,
-  useDisclosure,
-} from "@chakra-ui/react";
+import { Box, Drawer, DrawerContent, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import { DashboardContent } from "../DashboardContent/DashboardContent";
 import { SidebarContent } from "./SidebarContent";
@@ -17,7 +8,7 @@ export const DashboardSidebar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Box minH="100vh" bg={"#F5F5F5"}>
+      <Box minH="100vh" bg={"#FAFAFB"} mt={3}>
         <SidebarContent
           onClose={() => onClose}
           display={{ base: "none", md: "block" }}
@@ -35,9 +26,8 @@ export const DashboardSidebar = () => {
             <SidebarContent onClose={onClose} />
           </DrawerContent>
         </Drawer>
-        {/* for responsive */}
         <SidebarResponsive onOpen={onOpen} />
-        <Box ml={{ base: 0, md: 60 }} p="4">
+        <Box ml={{ base: 0, md: 40 }} p="4">
           <DashboardContent />
         </Box>
       </Box>
